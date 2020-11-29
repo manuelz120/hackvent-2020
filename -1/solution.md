@@ -89,3 +89,12 @@ manuel@ManuelErika:/mnt/d/hackvent-2020/-1$ file out
 out: PNG image data, 410 x 410, 8-bit grayscale, non-interlaced
 ```
 
+![White square](./out.png)
+
+At a first glance, the image looks just like a white square. Also, there seems to be no interesting information hidden in the exif-data. However, if we open the image in [Stegsolve](https://github.com/eugenekolo/sec-tools/tree/master/stego/stegsolve/stegsolve) (or just look very closely), we can notice that there are 2 slightly different shades of whites. Using Stegsolve, we can make easily increase the contrast and obtain a nice QR code:
+
+![QR Code](./solved.bmp)
+
+Scanning the QR code gives us the first flag:
+
+**Flag:** HV20{34t-sl33p-haxx-rep34t}
