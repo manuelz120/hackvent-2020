@@ -1,4 +1,4 @@
-# # HV20.02 Chinese Animals
+# HV20.02 Chinese Animals
 
 After playing around with different encodings for a while, I noticed that the chinese characters could just be a different interpretation of the hex encoded flag. When converting the chinese letters to hex, and converting the hex string back to ASCII I received some readable output.
 
