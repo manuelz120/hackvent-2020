@@ -20,4 +20,5 @@ HV20{ZipCrypt0_w1th_kn0wn_pla1ntext_1s_easy_t0_decrypt}                 HV20{Zip
 ```
 
 **Flag:** HV20{ZipCrypt0_w1th_kn0wn_pla1ntext_1s_easy_t0_decrypt}
+
 **Hidden Flag:** HV20{it_is_always_worth_checking_everywhere_and_congratulations,\_you_have_found_a_hidden_flag}
