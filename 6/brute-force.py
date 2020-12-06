@@ -2,6 +2,7 @@
 
 from pyzbar.pyzbar import decode
 from PIL import Image
+from itertools import permutations
 
 output = decode(Image.open('./solved.bmp'))
 
@@ -21,19 +22,44 @@ def concat_images_vertically(im1, im2):
     dst.paste(im2, (0, im1.height))
     return dst
 
-for i in range(1, 7):
-    top_left = Image.open(f"parts/{i}-top-left.jpg")
-    top_right = Image.open(f"parts/{i}-top-right.jpg")
-    bottom_left = Image.open(f"parts/{i}-bottom-left.jpg")
-    bottom_right = Image.open(f"parts/{i}-bottom-right.jpg")
+top_left_parts = list(map(lambda x: Image.open(f"parts/{x}-top-left.jpg"), range(1, 6)))
+top_right_parts = list(map(lambda x: Image.open(f"parts/{x}-top-right.jpg"), range(1, 6)))
+bottom_left_parts = list(map(lambda x: Image.open(f"parts/{x}-bottom-left.jpg"), range(1, 6)))
+bottom_right_parts = list(map(lambda x: Image.open(f"parts/{x}-bottom-right.jpg"), range(1, 6)))
 
-    top = concat_images_horizontally(top_left, top_right)
-    bottom = concat_images_horizontally(bottom_left, bottom_right)
-    full = concat_images_vertically(top, bottom)
+def get_filename_from_pil_image(image):
+    return image.filename.split('/')[1].split('.')[0]
 
-    for j in range(4):
-        full = full.transpose(Image.ROTATE_90)
-        full.save(f"./out/{i}_{j}.jpg")
+for top_left in top_left_parts:
+    for top_right in top_right_parts:
+        for bottom_left in bottom_left_parts:
+            for bottom_right in bottom_right_parts:
+                top = concat_images_horizontally(top_left, top_right)
+                bottom = concat_images_horizontally(bottom_left, bottom_right)
+                full = concat_images_vertically(top, bottom)
 
-        output = decode(full)
-        print(output)
+                for j in range(4):
+                    full = full.transpose(Image.ROTATE_90)
+                    output = decode(full)
+                    if len(output) > 0:
+                        full.save(f"./out/{get_filename_from_pil_image(top_left)}_{get_filename_from_pil_image(top_right)}_{get_filename_from_pil_image(bottom_left)}_{get_filename_from_pil_image(bottom_right)}_{j}.jpg")
+                        print(output)
+
+
+
+# for i in range(1, 7):
+#     top_left = Image.open(f"parts/{i}-top-left.jpg")
+#     top_right = Image.open(f"parts/{i}-top-right.jpg")
+#     bottom_left = Image.open(f"parts/{i}-bottom-left.jpg")
+#     bottom_right = Image.open(f"parts/{i}-bottom-right.jpg")
+
+#     top = concat_images_horizontally(top_left, top_right)
+#     bottom = concat_images_horizontally(bottom_left, bottom_right)
+#     full = concat_images_vertically(top, bottom)
+
+#     for j in range(4):
+#         full = full.transpose(Image.ROTATE_90)
+#         full.save(f"./out/{i}_{j}.jpg")
+
+#         output = decode(full)
+#         print(output)
