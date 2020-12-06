@@ -1,0 +1,25 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Sat Dec  5 10:12:40 2020
+Invocation: foremost cf505372-330b-4b34-a95b-59fa33db37f8.jpg 
+Output directory: /home/manuel/Desktop/Hacking/hackvent-2020/5/output
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: cf505372-330b-4b34-a95b-59fa33db37f8.jpg
+Start: Sat Dec  5 10:12:40 2020
+Length: 8 KB (8908 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000000.jpg 	       8 KB 	          0 	 
+1:	00000017.zip 	      185 B 	       8723 	 
+Finish: Sat Dec  5 10:12:40 2020
+
+2 FILES EXTRACTED
+	
+jpg:= 1
+zip:= 1
+------------------------------------------------------------------
+
+Foremost finished at Sat Dec  5 10:12:40 2020
