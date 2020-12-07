@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace brute_force
 {
-    class Program
+    internal class Program
     {
-        static void FlagDecoder(char first, char second)
+        private static void FlagDecoder(char first, char second)
         {
             try
             {
@@ -25,7 +22,7 @@ namespace brute_force
                 string str2;
                 if (str1 == "BumBumWithTheTumTum")
                 {
-                    str2 = "SFYyMH" + charArray1[17].ToString() + "yMz" + (object)(charArray1[8].GetHashCode() % 10) + "zcnMzXzN" + charArray1[3].ToString() + "ZzF" + charArray1[9].ToString() + "MzNyM" + charArray1[13].ToString() + "5n" + charArray1[14].ToString() + "2";
+                    str2 = "SFYyMH" + charArray1[17].ToString() + "yMz" + charArray1[8].GetHashCode() % 10 + "zcnMzXzN" + charArray1[3].ToString() + "ZzF" + charArray1[9].ToString() + "MzNyM" + charArray1[13].ToString() + "5n" + charArray1[14].ToString() + "2";
                 }
                 else
                 {
@@ -38,7 +35,7 @@ namespace brute_force
                 }
                 char[] charArray2 = "htroFdnAkcaB".ToCharArray();
                 string str3 = "";
-                Array.Reverse((Array)charArray2);
+                Array.Reverse(charArray2);
                 for (int index = 0; index < charArray2.Length; ++index)
                     str3 += charArray2[index].ToString();
                 string s;
@@ -60,8 +57,8 @@ namespace brute_force
                 byte num = 42;
                 for (int index = 0; index < charArray3.Length; ++index)
                 {
-                    char ch = (char)((uint)charArray3[index] ^ (uint)num);
-                    num = (byte)((int)num + index - 4);
+                    char ch = (char)(charArray3[index] ^ (uint)num);
+                    num = (byte)(num + index - 4);
                     str4 += ch.ToString();
                 }
                 string str5;
@@ -82,59 +79,36 @@ namespace brute_force
                 byte[] numArray1 = Convert.FromBase64String(s);
                 byte[] buffer = new byte[bytes.Length];
                 for (int index = 0; index < bytes.Length; ++index)
-                    buffer[index] = (byte)((uint)bytes[index] ^ (uint)numArray1[index % numArray1.Length]);
+                    buffer[index] = (byte)(bytes[index] ^ (uint)numArray1[index % numArray1.Length]);
                 byte[] hash = SHA1.Create().ComputeHash(buffer);
-                byte[] numArray2 = new byte[20]
-                {
-          (byte) 107,
-          (byte) 64,
-          (byte) 119,
-          (byte) 202,
-          (byte) 154,
-          (byte) 218,
-          (byte) 200,
-          (byte) 113,
-          (byte) 63,
-          (byte) 1,
-          (byte) 66,
-          (byte) 148,
-          (byte) 207,
-          (byte) 23,
-          (byte) 254,
-          (byte) 198,
-          (byte) 197,
-          (byte) 79,
-          (byte) 21,
-          (byte) 10
-                };
+                byte[] numArray2 = new byte[20] { 107, 64, 119, 202, 154, 218, 200, 113, 63, 1, 66, 148, 207, 23, 254, 198, 197, 79, 21, 10 };
                 for (int index = 0; index < hash.Length; ++index)
                 {
-                    if ((int)hash[index] != (int)numArray2[index])
+                    if (hash[index] != numArray2[index])
                     {
-                        Console.WriteLine("Your inputs do not result in the flag.");
+                        //Console.WriteLine("Your inputs do not result in the flag.");
                         return;
                     }
                 }
                 string str6 = Encoding.ASCII.GetString(bytes);
                 if (!str6.StartsWith("HV20{"))
                     return;
-                Console.WriteLine("Congratulations! You're now worthy to claim your flag: {0}", (object)str6);
+                Console.WriteLine("Congratulations! You're now worthy to claim your flag: {0}", str6);
+                Console.WriteLine("First: " + new string(charArray1));
+                Console.WriteLine("Second: " + "htroFdnAkcaB");
+                Console.WriteLine("Third: " + new string(charArray3));
             }
             catch
             {
             }
-            finally
-            {
-            }
-
         }
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".ToCharArray();
-            foreach (var char1 in charset)
+            char[] charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".ToCharArray();
+            foreach (char char1 in charset)
             {
-                foreach (var char2 in charset)
+                foreach (char char2 in charset)
                 {
                     FlagDecoder(char1, char2);
                 }
