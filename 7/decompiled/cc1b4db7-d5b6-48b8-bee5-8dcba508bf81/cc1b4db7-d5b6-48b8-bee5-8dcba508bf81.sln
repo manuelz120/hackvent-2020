@@ -1,0 +1,20 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BadMorals", "cc1b4db7-d5b6-48b8-bee5-8dcba508bf81.csproj", "{7F4B21E9-7A35-42C9-80CE-D1F6AE01D4CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F4B21E9-7A35-42C9-80CE-D1F6AE01D4CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F4B21E9-7A35-42C9-80CE-D1F6AE01D4CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F4B21E9-7A35-42C9-80CE-D1F6AE01D4CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F4B21E9-7A35-42C9-80CE-D1F6AE01D4CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
