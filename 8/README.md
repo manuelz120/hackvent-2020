@@ -6,4 +6,4 @@ Let's play another little game this year. Once again, as every year, I promise i
 
 ## Requirements
 
-Perl
+Perl & `Term::ReadKey` module (from CPAN or `apt install libterm-readkey-perl` for debian / ubuntu based systems)
