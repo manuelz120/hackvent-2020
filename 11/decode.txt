@@ -1,0 +1,6 @@
+
+E3 B4 F4 E3 D3 E2 D3 A5 B5 D5 A2 E5 A5 E3 A3
+B3 E3 D5 D3 a3 D1 A1 C4 E3 E4 D1 D4 D1 D3 D1
+P  W  !  0  p  3  r  a  V  1  s  1  t  0  r
+
+PW!0p3raV1s1t0r
