@@ -1,0 +1,30 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Sun Dec 13 10:47:26 2020
+Invocation: foremost 00000000.ole 
+Output directory: /home/manuel/Desktop/Hacking/hackvent-2020/13/output/ole/output
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: 00000000.ole
+Start: Sun Dec 13 10:47:26 2020
+Length: 3 MB (3727872 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00004420.jpg 	     360 KB 	    2263041 	 
+1:	00005142.jpg 	     567 KB 	    2632969 	 
+2:	00006277.jpg 	     211 KB 	    3214168 	 
+3:	00006701.jpg 	     233 KB 	    3431168 	 
+4:	00000000.ole 	       3 MB 	          0 	 
+5:	00007240.zip 	       3 KB 	    3707058 	 
+Finish: Sun Dec 13 10:47:26 2020
+
+6 FILES EXTRACTED
+	
+jpg:= 4
+ole:= 1
+zip:= 1
+------------------------------------------------------------------
+
+Foremost finished at Sun Dec 13 10:47:26 2020
