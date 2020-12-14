@@ -1,1 +1,3 @@
 Exif Comment: 0xeb2e
+
+MBR Signature: 55 AA

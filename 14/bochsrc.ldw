@@ -1,0 +1,6 @@
+romimage: file=$BXSHARE/BIOS-bochs-latest
+vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest
+megs: 16
+ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
+ata0-master: type=disk, path="bochs.img", mode=flat, cylinders=20, heads=16, spt=63
+boot: disk
