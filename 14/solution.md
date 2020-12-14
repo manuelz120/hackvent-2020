@@ -70,3 +70,30 @@ Of course, the patched image is also still a valid GIF:
 ![Patched GIF](./patched.gif)
 
 **Flag:** HV20{54n74'5-m461c-b00t-l04d3r}
+
+# HV20.H2 Oh, another secret!
+
+Who knows where this could be hidden... Only the best of the best shall find it!
+
+Along with this challenge, another hidden flag got released. Special kudos to the Author for hiding a MBR, a QR and a hidden flag inside a single GIF with 512 bytes. To find the hidden flag, I had to go through the disassembly once more. After a while, another loop caught my attention:
+
+```assembly
+BOOT_SECTOR:7C23                 xor     bx, bx
+BOOT_SECTOR:7C25                 mov     ah, 0Eh
+BOOT_SECTOR:7C27
+BOOT_SECTOR:7C27 loc_7C27:                               ; CODE XREF: BOOT_SECTOR:7C38↓j
+BOOT_SECTOR:7C27                 mov     al, [bx+7CF4h]
+BOOT_SECTOR:7C2B                 mov     cl, [bx+7C9Eh]
+BOOT_SECTOR:7C2F                 test    al, al
+BOOT_SECTOR:7C31                 jz      short loc_7C3A
+BOOT_SECTOR:7C33                 xor     al, cl
+BOOT_SECTOR:7C35                 int     10h             ; - VIDEO - WRITE CHARACTER AND ADVANCE CURSOR (TTY WRITE)
+BOOT_SECTOR:7C35                                         ; AL = character, BH = display page (alpha modes)
+BOOT_SECTOR:7C35                                         ; BL = foreground color (graphics modes)
+BOOT_SECTOR:7C37                 inc     bx
+BOOT_SECTOR:7C38                 jmp     short loc_7C27
+```
+
+Before entering the loop `bx` is set to 0. Then the loop XORs a sequence of bytes starting from `7CF4` and `7C9E` respectively. Although it looks like the program prints the values to the screen, they don't seem to be part of the QR code, as this is printed in another loop below this one. To find out how the result of this operation actually looks like, I wrote a small [python program](./hidden-flag.py) which reads the byte sequences from the image file and XORs them. This resulted in the second hidden flag.
+
+**Flag:** HV20{h1dd3n-1n-pl41n-516h7}
