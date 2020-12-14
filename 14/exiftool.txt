@@ -1,0 +1,21 @@
+ExifTool Version Number         : 12.10
+File Name                       : 5625d5bc-ea69-433d-8b5e-5a39f4ce5b7c.gif
+Directory                       : .
+File Size                       : 512 bytes
+File Modification Date/Time     : 2020:12:14 06:39:27+01:00
+File Access Date/Time           : 2020:12:14 06:39:42+01:00
+File Inode Change Date/Time     : 2020:12:14 06:39:27+01:00
+File Permissions                : rw-r--r--
+File Type                       : GIF
+File Type Extension             : gif
+MIME Type                       : image/gif
+GIF Version                     : 89a
+Image Width                     : 128
+Image Height                    : 16
+Has Color Map                   : Yes
+Color Resolution Depth          : 3
+Bits Per Pixel                  : 2
+Background Color                : 3
+Comment                         : ë.
+Image Size                      : 128x16
+Megapixels                      : 0.002
