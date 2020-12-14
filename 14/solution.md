@@ -18,7 +18,7 @@ I tried to do the same in Bochs to make sure it was not just a QEMU problem, but
 
 After digging through the disassembly for a couple of minutes, I discovered a strange exit condition in a loop that looked liked it might print parts of the QR code. At `7C5B`, the code compares a counter with `E0` (224 in decimal) and aborts in case this value is reached. If we assume that our QR code is consists of 512 byte, this would mean that the loop aborts before it completes the first half, which would fit with our observations from debugging the image in QEMU.
 
-```
+```assembly
 BOOT_SECTOR:7C57 start_of_loop:                          ; CODE XREF: BOOT_SECTOR:7C94↓j
 BOOT_SECTOR:7C57                 test    di, di
 BOOT_SECTOR:7C59                 jnz     short loc_7C79
