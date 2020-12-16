@@ -26,22 +26,13 @@ def get_flag_from_qube(cube: Cube):
                     print(flag)
                 out_file.write(flag + "\n")
 
-number_of_moves = 5
+number_of_moves = 6
 moves = "L Li R Ri U Ui D Di F Fi B Bi".split(' ')
 
-# for sequence in product(moves, repeat=number_of_moves):
-#     c = Cube("6_ei{aes3HV7_weo@sislh_e0k__t_nsooa_cda4r52c__nsllt}ph")
-#     move = " ".join(sequence)
-#     c.sequence(move)
-#     get_flag_from_qube(c)
+for sequence in product(moves, repeat=number_of_moves):
+    c = Cube("6_ei{aes3HV7_weo@sislh_e0k__t_nsooa_cda4r52c__nsllt}ph")
+    move = " ".join(sequence)
+    c.sequence(move)
+    get_flag_from_qube(c)
 
-for m1 in moves:
-    for m2 in moves:
-        for m3 in moves:
-            for m4 in moves:
-                for m5 in moves:
-                    for m6 in moves:
-                        c = Cube("6_ei{aes3HV7_weo@sislh_e0k__t_nsooa_cda4r52c__nsllt}ph")
-                        move = f"{m1} {m2} {m3} {m4} {m5} {m6}"
-                        c.sequence(move)
-                        get_flag_from_qube(c)
+# HV20{no_sle3p_since_4wks_lead5_to_@_hi6hscore_a7_last}
