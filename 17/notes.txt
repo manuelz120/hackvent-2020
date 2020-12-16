@@ -1,0 +1,38 @@
+https://github.com/salesforce/ja3
+https://github.com/fooinha/nginx-ssl-ja3
+
+https://github.com/cucyber/JA3Transport
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Santa's Control Panel</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="static/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="static/fontawesome/css/all.min.css" rel="stylesheet" media="screen">
+        <link href="static/style.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <div class="login">
+            <h1>Login</h1>
+            <form action="/login" method="post">
+                <label for="username">
+                    <i class="fas fa-user"></i>
+                </label>
+                <input type="text" name="username" placeholder="Username" id="username">
+                <label for="password">
+                    <i class="fas fa-lock"></i>
+                </label>
+                <input type="password" name="password" placeholder="Password" id="password">
+                
+                    <div class="msg">Invalid credentials.</div>
+                
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        
+            <!--DevNotice: User santa seems broken. Temporarily use santa1337.-->
+        
+    </body>
+</html>
