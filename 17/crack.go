@@ -26,12 +26,10 @@ func main() {
 		}
 		bodyString := string(bodyBytes)
 		fmt.Println(bodyString)
-		fmt.Println(resp.Header)
 	}
 	
 	resp, _ = client.PostForm(baseURL + "login", 
 		url.Values{"username": {"admin"}, "password": {"whatever"}})
-	fmt.Println(resp.StatusCode)
 	if resp.StatusCode == http.StatusOK {
 		bodyBytes, err := ioutil.ReadAll(resp.Body)
 		if err != nil {
@@ -50,7 +48,6 @@ func main() {
 	}
 
 	req.AddCookie(&http.Cookie{Name: "session", Value: jwt})
-	client = &http.Client{Transport: tr}
     resp, _ = client.Do(req)
 
 	if resp.StatusCode == http.StatusOK {
