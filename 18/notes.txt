@@ -23,3 +23,19 @@ Format:
 00000010: 6230 6261 6365 3061 6236 dbb8 dd00 478f  b0bace0ab6....G.
 00000020: a189 aec3 cbe5 2294 f4ca d157 fe2d 7865  ......"....W.-xe
 00000030: 6774 611f 321b 9930 6fc7                 gta.2..0o.
+
+Format:
+3a02
+Salt: 
+a723 b12f 66bc feaa
+Signature: 
+3035 3131 3139 6230 6261 6365 3061 6236
+Wrapped passphrase:
+dbb8 dd00 478f a189 aec3 cbe5 2294 f4ca d157 fe2d 7865 6774 611f 321b 9930 6fc7
+
+
+John the ripper found the password: think-santa-lives-at-north-pole
+
+Mount the image
+
+HV20{a_b4ckup_of_1mp0rt4nt_f1l35_15_3553nt14l}
