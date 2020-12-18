@@ -1,0 +1,25 @@
+How-To:
+https://research.kudelskisecurity.com/2015/08/25/how-to-crack-ubuntu-disk-encryption-and-passwords/
+
+Scan for wrapped passphrase
+
+binwalk -R="\x3a\x02" 9154cb91-e72e-498f-95de-ac8335f71584.img
+
+
+Format:
+2 Byte Magic (3a  02)
+8 byte salt 
+16 byte signature
+32 byte wrapped passphrase
+------------------
+58 bytes (0x3a)
+
+➜  18 git:(main) ✗ dd if=./9154cb91-e72e-498f-95de-ac8335f71584.img of=wrapped-passphrase bs=1 count=58 skip=96468992
+58+0 records in
+58+0 records out
+58 bytes copied, 0.000816455 s, 71.0 kB/s
+➜  18 git:(main) ✗ xxd wrapped-passphrase 
+00000000: 3a02 a723 b12f 66bc feaa 3035 3131 3139  :..#./f...051119
+00000010: 6230 6261 6365 3061 6236 dbb8 dd00 478f  b0bace0ab6....G.
+00000020: a189 aec3 cbe5 2294 f4ca d157 fe2d 7865  ......"....W.-xe
+00000030: 6774 611f 321b 9930 6fc7                 gta.2..0o.
