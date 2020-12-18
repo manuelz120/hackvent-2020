@@ -1,6 +1,6 @@
 # HV20.17 Santa's Gift Factory Control
 
-For this challenge, we get a link to a [website](https://876cfcc0-1928-4a71-a63e-29334ca287a0.rdocker.vuln.land/) that is protected using a [JA3 signature](https://github.com/salesforce/ja3). We also know that the signature has to match `771,49162-49161-52393-49200-49199-49172-49171-52392,0-13-5-11-43-10,23-24,0` for us to be able to access the site. As this signature is derived from a couple of system / browser parameters (supported ciphers, user agent, ...), it is not straightforward to fake it but after googling for a bit, I found a useful [tool](https://github.com/CUCyber/ja3transport) written in go that allows us to bypass the protection.
+For this challenge, we get a link to a [website](https://876cfcc0-1928-4a71-a63e-29334ca287a0.rdocker.vuln.land/) that is protected using a [JA3 signature](https://github.com/salesforce/ja3). We also know that the signature has to match `771,49162-49161-52393-49200-49199-49172-49171-52392,0-13-5-11-43-10,23-24,0` for us to be able to access the site. As this signature is derived from a couple of system / browser parameters (supported ciphers, TLS versions, ...), it is not straightforward to fake it but after googling for a bit, I found a useful [tool](https://github.com/CUCyber/ja3transport) written in go that allows us to bypass the protection.
 
 By using this tool, I was able to access the content of the site, but instead of a flag I got presented with another login form:
 
