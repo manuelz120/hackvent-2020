@@ -1,0 +1,8 @@
+- !!python/object/new:str
+  args: []
+  state: !!python/tuple
+    - "print('123')"
+    - !!python/object/new:staticmethod
+      args: [0]
+      state:
+        update: !!python/name:exec

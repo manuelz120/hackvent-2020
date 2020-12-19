@@ -1,0 +1,6 @@
+!!python/object/new:tuple [
+  !!python/object/new:map [
+    !!python/object/new:type [!!python/object/new:subprocess.Popen {}],
+    ["ls"],
+  ],
+]

