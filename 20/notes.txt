@@ -2,3 +2,7 @@
 0x1b40 => 6976
 
 p=bunnyrabbitsrule4real
+
+find bytes that end up as 7zip magic header when xored with key => breadbread
+
+python3 11.py bfd96926-dd11-4e07-a05a-f6b807570b5a.png breadbread
