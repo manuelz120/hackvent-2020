@@ -103,6 +103,6 @@ hidden.png: PNG image data, 185 x 185, 8-bit gray+alpha, non-interlaced
 
 Still, the image does not look like it would directly give us the flag. As there were no other hints on where to start, I tried my luck and imported it in `stegsolve`. Apparently, there was some sort of color inversion because stegsolve immediately displayed me a valid QR code. Scanning the code finally revealed the flag for this challenge:
 
-![QR code](./solution.bmp)
+![QR code](./solved.png)
 
 **Flag:** HV20{My*pr3c10u5_my_r363x!!!,\_7hr0w_17_1n70_7h3_X1.*-\_64l4dr13l}
