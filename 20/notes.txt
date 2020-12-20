@@ -6,3 +6,15 @@ p=bunnyrabbitsrule4real
 find bytes that end up as 7zip magic header when xored with key => breadbread
 
 python3 11.py bfd96926-dd11-4e07-a05a-f6b807570b5a.png breadbread
+
+
+
+steghide embed -e loki97 ofb -z 9 -p \"bunnies12.jpg\\\\\\\" -ef /tmp/t/hidden.png -p \\\\\\\"SecretPassword\" -N -cf \"bunnies12.jpg\" -ef \"/tmp/t/hidden.png\"
+
+
+steghide extract -p "bunnies12.jpg\\\\\\" -xf inner.jpg -p \\\\\\\"SecretPassword\" -N
+
+➜  20 git:(main) ✗ steghide extract -p "bunnies12.jpg\\\" -ef /tmp/t/hidden.png -p \\\"SecretPassword" -sf inner.jpg -xf out.png 
+wrote extracted data to "out.png".
+➜  20 git:(main) ✗ file out.png 
+out.png: PNG image data, 185 x 185, 8-bit gray+alpha, non-interlaced
