@@ -1,1 +1,4 @@
+0x29 => 41
+0x1b40 => 6976
+
 p=bunnyrabbitsrule4real

@@ -260,6 +260,7 @@ function B64(h) {
 
 function download(a, c) {
     var b = document.createElement("a");
+    console.log(c);
     b.setAttribute("href", "data:application/octet-stream;base64," + c);
     b.setAttribute("target", "_blank");
     b.setAttribute("download", a);
