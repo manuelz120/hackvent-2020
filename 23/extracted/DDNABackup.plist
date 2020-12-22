@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>appsDiskUsage</key>
+	<integer>0</integer>
+	<key>audioDiskUsage</key>
+	<integer>0</integer>
+	<key>booksDiskUsage</key>
+	<integer>0</integer>
+	<key>dataSets</key>
+	<integer>25427963</integer>
+	<key>datasetSizes</key>
+	<dict/>
+	<key>deviceAppleIDDSPersonID</key>
+	<integer>0</integer>
+	<key>deviceAppleIDEmail</key>
+	<string></string>
+	<key>deviceIconFilename</key>
+	<string>com.apple.iphone-4-cdma-black</string>
+	<key>deviceModelDetails</key>
+	<string>iPhone 4S</string>
+	<key>deviceUDID</key>
+	<string>5e8dfbc7f9f29a7645d66ef70b6f2d3f5dad8583</string>
+	<key>documentsAndDataDiskUsage</key>
+	<integer>0</integer>
+	<key>domainSets</key>
+	<integer>0</integer>
+	<key>editable</key>
+	<false/>
+	<key>iMazingBackupVersion</key>
+	<integer>0</integer>
+	<key>migrationVersion</key>
+	<integer>1</integer>
+	<key>musicDiskUsage</key>
+	<integer>0</integer>
+	<key>otherDiskUsage</key>
+	<integer>0</integer>
+	<key>photosDiskUsage</key>
+	<integer>0</integer>
+	<key>podcastDiskUsage</key>
+	<integer>0</integer>
+	<key>ringtonesDiskUsage</key>
+	<integer>0</integer>
+	<key>totalDiskUsage</key>
+	<integer>15951820</integer>
+	<key>videoDiskUsage</key>
+	<integer>0</integer>
+	<key>voiceMemosDiskUsage</key>
+	<integer>0</integer>
+</dict>
+</plist>
