@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 from iphone_backup_decrypt import EncryptedBackup, RelativePath, RelativePathsLike
 
-passphrase = "20201225"  # Or load passphrase more securely from stdin, or a file, etc.
-backup_path = "extracted"
+passphrase = b"20201225"  # Or load passphrase more securely from stdin, or a file, etc.
+backup_path = "65195ba5-2dac-49a4-9606-c9d8733bebcf"
 
 backup = EncryptedBackup(backup_directory=backup_path, passphrase=passphrase)
 
