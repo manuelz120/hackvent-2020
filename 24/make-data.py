@@ -39,6 +39,9 @@ for i in range(len(buff)):
 with open('./rockyou.txt', 'rb') as input_file:
     lines = input_file.readlines()
 
+buff = [0x0a, 0x11, 0x48, 0x43, 0xde, 0x12, 0x0e, 0x14, 0xce, 0xa0, 0x6e, 0xa7, 0x49, 0xcd, 0x8e, 0x80, 0x35, 0x08,
+ 0x0d, 0x53, 0xc1, 0x6d, 0x1a, 0x68, 0x84, 0xeb, 0x28, 0xa0, 0x27, 0x8a, 0x8f, 0xa4]
+
 with open('data/santa_data.txt', 'wb') as output_file:
     output_file.write(bytes(buff))
 
@@ -78,8 +81,9 @@ def brute_force_parts(lines, number):
         except:
             pass
         
-        if count % 100 == 0:
-            print(f"{count} / {len(lines)}")
+        if count % 1000 == 0:
+            total = len(lines)
+            print(f"{number} worker - {count} / {total} - {100 * count / total} %")
 
 
 a, b, c, d = array_split(lines, 4)
