@@ -71,10 +71,10 @@ def brute_force_parts(lines, number):
             p.sendline(password)
             p.recvuntil('choice>')
             p.sendline("0")
-            data = p.recvuntil('choice>')
-            if b'HV20' in data:
-                print(data)
-                with open('flag.txt', 'wb') as output_file:
+            data = p.recvuntil('choice>').decode('utf-8')
+            if 'HV20' in data:
+                print(f"Worker {number} found flag")
+                with open('flag.txt', 'w') as output_file:
                     output_file.write(data)
                 break
             p.sendline("3")

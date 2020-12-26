@@ -1,0 +1,7 @@
+ your secret data:
+HV20{0h_n0es_fl4g_g0t_l34k3d!1}
+[0] show data
+[1] enter data
+[2] delete data
+[3] quit
+choice>
