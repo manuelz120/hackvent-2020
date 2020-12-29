@@ -7,9 +7,8 @@ Thankfully, it was an easy task to decompile the binary using JetBrains [dotPeek
 - Parameter 2: `htroFdnAkcaB` (reverse of `BackAndForth`)
 - Parameter 3: `nOMNSaSFjC[` (can be recovered by reversing an XOR chain on `DinosAreLit`)
 
-For the first parameter, it is a bit more tricky. We know that the characters with even indizes form the word `BumBumWithTheTumTum`. Most characters with odd indizes are ignored in the calculation of the flag. However, the hash code of the character at index 8, and the value of the character at index 14 are still used. As the output of this operation gets base64 decoded, there are only 64 possible values for each of the characters. Therefore, I wrote a simple [program](./brute-force/Program.cs) that brute forces all possibilities. In the end, it found 4 possible values for the first input and also recovered the flag:
+For the first parameter, it is a bit more tricky. We know that the characters with even indices form the word `BumBumWithTheTumTum`. Most characters with odd indices are ignored in the calculation of the flag. However, the hash code of the character at index 8, and the value of the character at index 14 are still used. As the output of this operation gets base64 decoded, there are only 64 possible values for each of the characters. Therefore, I wrote a simple [program](./brute-force/Program.cs) that brute forces all possibilities. In the end, it found 4 possible values for the first input and also recovered the flag:
 
 ![Input values](./solved-2.jpg)
 
 **Flag:** HV20{r3?3rs3_3ng1n33r1ng_m4d3_34sy}
-

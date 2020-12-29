@@ -2,7 +2,7 @@
 
 For this challenge, we get an GIF image of a file (the tool). As the challenge is labelled with forensic and reverse engineering, we can assume that some binary must be hidden inside the GIF. To my surprise, the file is quite small (512 byte) and the usual image forensic tools did not yield any exciting results. However, there were still a couple of things that caught my attention:
 
-Firstly, the image's EXIF comment contains a bunch of weird (non printable) bytes. Moreover, there is some trailing data after the end of the actual image (`0000 55aa`). Furhtermore, there is another string in the file that caught my attention: `uvag:--xrrc-tbvat`. After playing around with various decodings I realized that this is just a rot13 encoded hint: `hint:--keep-going`. This looks like a command line option from the popular build tool [make](https://www.gnu.org/software/make/manual/html_node/Errors.html#Errors), which confirms my first impression that the GIF probably contains binary data.
+Firstly, the image's EXIF comment contains a bunch of weird (non printable) bytes. Moreover, there is some trailing data after the end of the actual image (`0000 55aa`). Furthermore, there is another string in the file that caught my attention: `uvag:--xrrc-tbvat`. After playing around with various decodings I realized that this is just a rot13 encoded hint: `hint:--keep-going`. This looks like a command line option from the popular build tool [make](https://www.gnu.org/software/make/manual/html_node/Errors.html#Errors), which confirms my first impression that the GIF probably contains binary data.
 
 After a bunch of random experiments, I realized that the image might actually be a valid MBR, as it has a valid size (512 byte) and a proper signature (ends with `0000 55aa`). I tried to boot the image as a floppy drive using `qemu-system-i386` and it seemed to work:
 
@@ -16,7 +16,7 @@ However, the output screen only contained a partial QR code:
 
 I tried to do the same in Bochs to make sure it was not just a QEMU problem, but unfortunately I still got the same result. It seems like the source code of the MBR has a bug and prematurely stops printing the QR code. The probably easiest solution in this case is trying to reverse engineer and patch the MBR. Thankfully, IDA already has a handy integration for Bochs, so I could simply import my [bochs configuration](./bochssrc.cfg) and analyze the assembly in IDA.
 
-After digging through the disassembly for a couple of minutes, I discovered a strange exit condition in a loop that looked liked it might print parts of the QR code. At `7C5B`, the code compares a counter with `E0` (224 in decimal) and aborts in case this value is reached. If we assume that our QR code is consists of 512 byte, this would mean that the loop aborts before it completes the first half, which would fit with our observations from debugging the image in QEMU.
+After digging through the disassembly for a couple of minutes, I discovered a strange exit condition in a loop that looked like it might print parts of the QR code. At `7C5B`, the code compares a counter with `E0` (224 in decimal) and aborts in case this value is reached. If we assume that our QR code consists of 512 byte, this would mean that the loop aborts before it completes the first half, which would fit with our observations from debugging the image in QEMU.
 
 ```assembly
 BOOT_SECTOR:7C57 start_of_loop:                          ; CODE XREF: BOOT_SECTOR:7C94↓j

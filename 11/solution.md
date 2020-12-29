@@ -18,6 +18,6 @@ PW!0p3raV1s1t0r
 
 However, this is not our flag. Probably, we still need to extract the other piece of information that is hidden in the image with the piano notes. As I still had not used the image of the skyline, I did a reverse google search and learned that it most likely shows the skyline of Hongkong. To my surprise, there was another interesting search result, leading to an online image steganography tool: https://www.mobilefish.com/services/steganography/steganography.php
 
-With the help of this tool, I was able to extract a password protected [zip file](./flag.zip) from the piano image. I tried to unzip it using the password we got from the piano notes and finally got a valid flag.
+With the help of this tool, I was able to extract a password protected [zip file](./flag.zip) from the piano notes image. I tried to unzip it using the password we got from the piano notes and finally got a valid flag.
 
 **Flag:** HV20{r3ad-th3-mus1c!}

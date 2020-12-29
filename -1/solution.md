@@ -2,7 +2,6 @@
 
 The challenge description seems to be a clear hint that this text was encrypted using a Caesar cipher. As there is only a limited number of possible shifts, I pasted the first line into an online decoder (https://www.dcode.fr/caesar-cipher) and found out that the offset is 23. The first line says: `Verse 3 done! Off with you! Get back to work! You're not done here...`
 
-
 Knowing the offset, I was able to decrypt the rest of the input. The output looks like a base-64 encoded string:
 
 ```
@@ -85,7 +84,7 @@ I then tried to decode the data in my terminal and checked how the output looks 
 
 ```bash
 manuelErika:/mnt/d/hackvent-2020/-1$ cat encoded.txt | base64 -d > out
-manuel@ManuelErika:/mnt/d/hackvent-2020/-1$ file out 
+manuel@ManuelErika:/mnt/d/hackvent-2020/-1$ file out
 out: PNG image data, 410 x 410, 8-bit grayscale, non-interlaced
 ```
 
