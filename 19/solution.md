@@ -32,7 +32,7 @@ expected URI, but found '\n'
   in "docker-compose.yml", line 1, column 3
 ```
 
-It seems like the basic syntax check step parses the YAML file in python, so I started to google for some common attacks when parsing YAML in python and found some interesting attack that exploit the `full_load` function of the _PyYAML_ package. I searched for a couple of payloads and after a while I found one that seemed to work and allowed me to execute commands on the remote machine. To get the output of my commands, I simply piped them into netcat and sent the output to my machine. Thankfully, it was easy to find the `flag.txt` file since it was saved in the same folder as our vulnerable program. Using the following YAML file I was able to receive the content of the flag:
+It seems like the basic syntax check step parses the YAML file in python, so I started to google for some common attacks when parsing YAML in python and found an interesting attack that exploits the `full_load` function of the _PyYAML_ package. I searched for a couple of payloads and after a while I found one that seemed to work and allowed me to execute commands on the remote machine. To get the output of my commands, I simply piped them into netcat and sent the output to my machine. Thankfully, it was easy to find the `flag.txt` file since it was saved in the same folder as our vulnerable program. Using the following YAML file I was able to receive the content of the flag:
 
 ```yaml
 - !!python/object/new:str

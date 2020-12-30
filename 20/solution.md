@@ -6,7 +6,7 @@ It seems like the page registers a onclick handler on the image, parses some add
 
 After taking a look at the python file, we can see that it takes two parameters. The first one is a filename (presumably the name of our image), while the second one is a string which tells the program on where to split the input file. After splitting the input file, the last chunk gets XORed using a static key and saved as a `7z` file. This means, we probably have an encrypted _7zip_ archive embedded within the initial image. To find out where to split the input, we just need to XOR the start of the key `Rabbits are small ...` with the magic bytes of the 7zip file (`ord('7'), ord('z'), 0xBC, 0xAF, 0x27, 0x1C`). I wrote a small [python program](./find-bytes.py) to do this and found out that the split key is `breadbread`. Later on, I also discovered that we could have found this key by running the text which was provided as a hint. Apparently, it is a program written in the esoteric [Chef](https://esolangs.org/wiki/Chef) programming language. After running `11.py` with the correct parameters (`python3 11.py bfd96926-dd11-4e07-a05a-f6b807570b5a.png breadbread`), I was able to get the required [archive](./7zip/11.7z).
 
-I started to extract the archive and found out that it contained the layers of a docker image. I extracted all the layers and stepped through the files until I found something interesting. The important part seems to happen in layers `ab2b751e14409f169383b5802e61764fb4114839874ff342586ffa4f968de0c1`. In the home folder of bread we discover a lot of files containing hex strings. From the commands found in json file which reassembles the initial `Dockerfile`, we can see how these files were generated and learn that they contain the data for a JPEG image:
+I started to extract the archive and found out that it contained the layers of a docker image. I extracted all the layers and stepped through the files until I found something interesting. The important part seems to happen in layer `ab2b751e14409f169383b5802e61764fb4114839874ff342586ffa4f968de0c1`. In the home folder of bread we discover a lot of files containing hex strings. From the commands found in json file which reassembles the initial `Dockerfile`, we can see how these files were generated and learn that they contain the data for a JPEG image:
 
 ```json
 {
@@ -105,4 +105,4 @@ Still, the image does not look like it would directly give us the flag. As there
 
 ![QR code](./solved.png)
 
-**Flag:** HV20{My*pr3c10u5_my_r363x!!!,\_7hr0w_17_1n70_7h3_X1.*-\_64l4dr13l}
+**Flag:** HV20{My_pr3c10u5_my_r363x!!!,\_7hr0w_17_1n70_7h3_X1.\_-\_64l4dr13l}

@@ -1,6 +1,6 @@
 # HV20.23 Those who make backups are cowards!
 
-For this challenge, we get the encrypted password of Santas iPhone. We have to restore the backup to get the flag. Unfortunately, we don't know the password. However, Santa still remebers that it has eight digits and starts with a **2**, which already improves the brute force speed by a lot.
+For this challenge, we get the encrypted password of Santa's iPhone. We have to restore the backup to get the flag. Unfortunately, we don't know the password. However, Santa still remembers that it has eight digits and starts with a **2**, which already improves the brute force speed by a lot.
 
 I found a useful [medium article](https://medium.com/taptuit/breaking-into-encrypted-iphone-backups-4dacc39403f0) where somebody in a similar situation explains how he managed to crack the password of the iTunes backup. Firstly, we have to extract the Key Bag from the `Manifest.plist` and convert it to a format that is usable by our cracking program [John](https://www.openwall.com/john/). Fortunately, this was an easy task because I found the useful `itunes_backup2hashcat` repository on GitHub (see [link](https://github.com/philsmd/itunes_backup2hashcat)) which does exactly that for me. The generated _passwd_ file looks like this and can be imported into John without any issues:
 
@@ -41,9 +41,9 @@ STR : b'\x00\x00\x00\x00\x00HV20{s0rry_n0_gam3_to_play}'
 
 We hide additional flags in some of the challenges! This is the place to submit them. There is no time limit for secret flags.
 
-**Note:** This is not a OSINT challenge. The icon has been chosen purely to consufe you.
+**Note:** This is not an OSINT challenge. The icon has been chosen purely to confuse you.
 
-Along with todays normal challenge, another hidden challenge was revealed. Although it is labelled as OSINT, the challenge description says it is not. Therefore, I assumed that there has to be another hidden challenge in the backup. I wasted a lot of time in analyzing the cat video (even looked at every single frame) but could not find anything.
+Along with today's normal challenge, another hidden challenge was revealed. Although it is labelled as OSINT, the challenge description says it is not. Therefore, I assumed that there has to be another hidden challenge in the backup. I wasted a lot of time in analyzing the cat video (even looked at every single frame) but could not find anything.
 
 After poking at another couple of files that looked like they could be interesting, I was thinking about trying out a different tool which might provide some more forensic features on the iTunes backup. I tried my luck with the iPhone backup recovery tool from [fonepaw](https://www.fonepaw.de/), and indeed it discovered another, already deleted contact. The website field for this contact contained another interesting value: `http://SFYyMHtpVHVuM3NfYmFja3VwX2YwcmVuc2l4X0ZUV30=`. After base64 decoding the value from the url I got another flag:
 

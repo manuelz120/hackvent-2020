@@ -26,11 +26,11 @@ choice> 3
 good bye!
 ```
 
-However, when reading the input the application takes 1000 byte from _stdin_ and passes them to a buffer with a size of just 10 byte. This vulnerability can most likely be exploited to achieve remote code execution and leak data from other users.
+However, when reading the input the application takes 1000 byte from _stdin_ using `fgets` and passes them to a buffer with a size of just 10 byte. This vulnerability can most likely be exploited to achieve remote code execution and leak data from other users.
 
 ![Buffer overflow](./overflow.png)
 
-Afterwards, I started taking a look at the communication from the [PCAP file](./attack.pcapng). By analyzing the TCP packets, we can see how user `evil0r` (password `lovebug1`) interacted with the application. On a first glance, there does not seem to be anything suspicious, as he does not interact with the notes and immediately quits after connecting. However, if we take a closer look at the quit command, we can see that it contains way more data than just the command (`3`):
+Afterwards, I started taking a look at the communication from the [PCAP file](./attack.pcapng). By analyzing the TCP packets, we can see how user `evil0r` (password `lovebug1`) interacted with the application. At a first glance, there does not seem to be anything suspicious, as he does not interact with the notes and immediately quits after connecting. However, if we take a closer look at the quit command, we can see that it contains way more data than just the command (`3`):
 
 ```
 00000000: 3320 4141 4141 4141 4141 4141 4141 4141  3 AAAAAAAAAAAAAA
@@ -56,7 +56,7 @@ Afterwards, I started taking a look at the communication from the [PCAP file](./
 00000140: b83c 0000 000f 050a                      .<......
 ```
 
-If we take a closer look at the part which follows the sequence of `A`s, we can see that it contains some shell code, so this whole request is exploiting the buffer overflow vulnerability we discussed before. After disassembling the shellcode, we can see that the exploit reads the data file of the user santa (`data/santa_data.txt`), encrypts it by xoring the content with `0xdeadbeef` and sends it to `192.168.0.42` (`evil0r`s IP) via a handcrafted DNS request. Thankfully, we also have the data from this DNS request, as it's still shown in the PCAP:
+If we take a closer look at the part which follows the sequence of `A`s, we can see that it contains some shell code, so this whole request is exploiting the buffer overflow vulnerability we discussed before. After disassembling the shellcode, we can see that the exploit reads the data file of the user santa (`data/santa_data.txt`), encrypts it by xoring the content with `0xdeadbeef` and sends it to `192.168.0.42` (`evil0r`'s IP) via a handcrafted DNS request. Thankfully, we also have the data from this DNS request, as it's still shown in the PCAP:
 
 Bytes from DNS request: `0xe5, 0xaf, 0xe5, 0x9d, 0x31, 0xac, 0xa3, 0xca, 0x21, 0x1e, 0xc3, 0x79, 0xa6, 0x73, 0x23, 0x5e, 0xda, 0xb6, 0xa0, 0x8d, 0x2e, 0xd3, 0xb7, 0xb6, 0x6b, 0x55, 0x85, 0x7e, 0xc8, 0x34, 0x22, 0x7a`
 
